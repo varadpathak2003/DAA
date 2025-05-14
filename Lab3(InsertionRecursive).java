@@ -12,6 +12,7 @@ class Main {
             swap(nums,next,next-1);
             next--;
         }
+        insertion(nums,start+1);
     }
     public static void swap(int nums[],int i ,int j){
         int temp=nums[i];
