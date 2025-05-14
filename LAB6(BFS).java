@@ -1,28 +1,39 @@
+// Enter the no of nodes : 
+// 4
+// Enter neighbours of 0: 
+// 1 2
+// Enter neighbours of 1: 
+// 0 3
+// Enter neighbours of 2: 
+// 0 3
+// Enter neighbours of 3: 
+// 1 2
+// [0, 1, 2, 3]
+// Nodes visited : 4
 import java.util.*;  
 
 public class GraphExample {
     static int visitedCount=0;
     public static void main(String[] args) {
-        int n = 6; // Number of nodes in the graph
+        Scanner sc=new Scanner(System.in);
         List< List<Integer>> adj = new ArrayList<>();
         
+        System.out.println("Enter the no of nodes : ");
+        int n=sc.nextInt();
+        sc.nextLine();
         for (int i = 0; i < n; i++) {
             adj.add(new ArrayList<>());
         }
         
-        adj.get(0).add(1);
-        adj.get(0).add(3);
-        adj.get(1).add(0);
-        adj.get(1).add(2);
-        adj.get(1).add(4);
-        adj.get(2).add(1);
-        adj.get(2).add(5);
-        adj.get(3).add(0);
-        adj.get(3).add(4);
-        adj.get(4).add(1);
-        adj.get(4).add(3);
-        adj.get(5).add(2);
-        
+        for (int i=0;i<n;i++){
+            System.out.println("Enter neighbours of "+i+": ");
+            String line=sc.nextLine().trim();
+            
+            String []parts=line.split(" ");
+            for (String part : parts){
+                adj.get(i).add(Integer.parseInt(part));
+            }
+        }
         Queue <Integer> q=new LinkedList<>();
         boolean [] visited=new boolean[n];
         
