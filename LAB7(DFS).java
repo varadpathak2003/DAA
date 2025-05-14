@@ -18,12 +18,14 @@ import java.util.*;
 public class GraphExample {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
-        List< List<Integer>> adj = new ArrayList<>();
+        
         System.out.println("Is Graph Directed  ?: ");
         boolean directed=sc.nextBoolean();
         System.out.println("Enter the no of nodes : ");
         int n=sc.nextInt();
         sc.nextLine();
+        
+         List< List<Integer>> adj = new ArrayList<>();
         for (int i = 0; i < n; i++) {
             adj.add(new ArrayList<>());
         }
@@ -43,17 +45,17 @@ public class GraphExample {
         }
         System.out.println("Enter starting node : ");
         int start=sc.nextInt();
-        boolean [] visited=new boolean[n];
         
+        boolean [] visited=new boolean[n];
         List <Integer> ans=new ArrayList<>();
         dfs(start,adj,visited,ans);
-        System.out.println(ans.toString());
-        ans.clear();
+        System.out.println(ans);
         
         for (int i=0;i<n;i++){
-            if (!visited[i]){
-                dfs(start,adj,visited,ans);
-                System.out.println(ans.toString());
+            if (!visited[i]) {
+                List<Integer> component = new ArrayList<>();
+                dfs(i, adj, visited, component);
+                System.out.println(component);
             }
         }
     }
