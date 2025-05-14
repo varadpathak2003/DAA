@@ -1,10 +1,10 @@
 class Main {
     public static void main(String[] args) {
        int nums[]={5,3,6,4,2,1};
-      insertion (nums,0);
+      insertion (nums);
        for (int a : nums) System.out.print(a+" ");
     }
-    public static void insertion(int []nums,int start){
+    public static void insertion(int []nums){
         int n=nums.length;
         for (int i=0;i<n-1;i++){
             int next=i+1;
